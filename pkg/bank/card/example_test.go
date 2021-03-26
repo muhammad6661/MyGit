@@ -5,11 +5,12 @@ import (
 	"bank/pkg/bank/types"
 )
 
-func ExampPaymentSources(){
+func ExamplePaymentSources(){
 	card:=[]types.Card{
 		{
 		Balance: 10_000_00,
 		Active: true,
+		PAN: "01",
 	   },
 	     {
 		   Balance: 10_000_00,
@@ -22,19 +23,20 @@ func ExampPaymentSources(){
 	{
 		   Balance: 12,
           Active: true,
+		PAN: "04",
+
 		},
 	
 	
 }
-  if(len(card)==4){
-	  fmt.Println(PaymentSources(card))
-  }
+// 	  fmt.Println(PaymentSources(card))
+//   }
 payment:=PaymentSources(card)
 
   for _,operation:=range payment{
 	  fmt.Println(operation.Number)
   }
   //Output: 
-  //1000000
-  //12
+  //01
+  //04
 }
